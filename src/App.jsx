@@ -7,7 +7,8 @@ function App() {
   const [note, setNote] = useState('');
   const [folder, setFolder] = useState('');
   const [folders, setFolders] = useState([]);
-  const [openFolders, setOpenFolders] = useState({}); // Track the open/closed state of each folder
+  const [openFolders, setOpenFolders] = useState({});
+  const [notes, setNotes] = useState([]); // Define 'notes' state here
 
   const handleClick = () => {
     const newNote = {
@@ -27,9 +28,10 @@ function App() {
         notes: [newNote],
       };
       setFolders([...folders, newFolder]);
-      setOpenFolders({ ...openFolders, [folder]: true }); // Open the newly added folder
+      setOpenFolders({ ...openFolders, [folder]: true });
     }
 
+    setNotes([...notes, newNote]); // Update 'notes' state
     setNote('');
     setFolder('');
   };
